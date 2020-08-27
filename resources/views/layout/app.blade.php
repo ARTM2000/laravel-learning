@@ -45,6 +45,7 @@
         </div>
     </nav>
 
+    @include('includes.messages')
     @yield('content')   
 
 
