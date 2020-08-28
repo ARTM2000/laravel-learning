@@ -41,6 +41,9 @@
                         <a class="nav-link" href="/about">About</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav navbar-right">
+                    <li class="nav-item"><a href="/posts/create" class="nav-link">Create Post</a></li>
+                </ul>
             </div>
         </div>
     </nav>
