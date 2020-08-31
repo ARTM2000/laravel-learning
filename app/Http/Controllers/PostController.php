@@ -16,28 +16,29 @@ class PostController extends Controller
 
     public function getUserPost(Request $req)
     {
-        // $this->belongTo('App\User');
 
-        // $this->validate($req, [
-        //     'userId' => 'required',
-        //     'userEmail' => 'required'
-        // ]);
+        $this->validate($req, [
+            'userId' => 'required',
+            'userEmail' => 'required'
+        ]);
 
-        // $user = User::find($req->userId)->first();
-        // if ($user) {
-        //     $posts = Post::where('user_id' == $user->id);
-        //     return $posts;
-        // } else {
-        //     return [
-        //         'error' => 'User does not exist',
-        //         'status' => 404
-        //     ];
-        // }
+        $user = User::find($req->userId);
+
+        dd($user);
+        if ($user) {
+            $posts = $user->posts();
+            return json_encode($posts);
+        } else {
+            return [
+                'error' => 'User does not exist',
+                'status' => 404
+            ];
+        }
 
         // $user = User::find($req->userId)->first()->post();
         // return $user;
 
-        return $req->header();
+        // return $req->header();
     }
 
     //for ui is below

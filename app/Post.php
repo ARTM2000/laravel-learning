@@ -12,4 +12,8 @@ class Post extends Model
     public $primaryKey = "id";
     //Timestamps default = true
     public $timestamps = true;
+
+    public function users() {
+        return $this->belongsTo('App\User');
+    }
 }
