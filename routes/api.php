@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\isAllowed;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +23,27 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return "Hello";
 // });
 
-Route::prefix('v1')->group(function() {
-    //defining the version one api
+// Route::prefix('v1')->group(function() {
+//     //defining the version one api
 
+//     //users route
+//     Route::get('users', 'UserController@getAllUser');
+//     Route::post('users/add', 'UserController@createUser');
+
+//     //posts route
+//     Route::get('posts', 'PostController@indexAPI');
+//     Route::post('posts/user', 'PostController@getUserPost')->;
+
+// })->middleware([""]);
+
+Route::group(["prefix" => "v1"], function () {
     //users route
     Route::get('users', 'UserController@getAllUser');
     Route::post('users/add', 'UserController@createUser');
 
+});
+
+Route::group(["prefix" => "v1", "namespace" => "API"], function () {
     //posts route
     Route::get('posts', 'PostController@indexAPI');
     Route::post('posts/user', 'PostController@getUserPost');
