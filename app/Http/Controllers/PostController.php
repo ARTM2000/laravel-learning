@@ -4,9 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 
 class PostController extends Controller
 {
+    //for api is below
+    public function indexAPI() 
+    {
+        return Post::all();
+    }
+
+    public function getUserPost(Request $req)
+    {
+        // $this->belongTo('App\User');
+
+        // $this->validate($req, [
+        //     'userId' => 'required',
+        //     'userEmail' => 'required'
+        // ]);
+
+        // $user = User::find($req->userId)->first();
+        // if ($user) {
+        //     $posts = Post::where('user_id' == $user->id);
+        //     return $posts;
+        // } else {
+        //     return [
+        //         'error' => 'User does not exist',
+        //         'status' => 404
+        //     ];
+        // }
+
+        // $user = User::find($req->userId)->first()->post();
+        // return $user;
+
+        return $req->header();
+    }
+
+    //for ui is below
     /**
      * Display a listing of the resource.
      *

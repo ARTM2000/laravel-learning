@@ -18,6 +18,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("/v1/me", function() {
-    return "Hello";
+// Route::get("/v1/me", function() {
+//     return "Hello";
+// });
+
+Route::prefix('v1')->group(function() {
+    //defining the version one api
+
+    //users route
+    Route::get('users', 'UserController@getAllUser');
+    Route::post('users/add', 'UserController@createUser');
+
+    //posts route
+    Route::get('posts', 'PostController@indexAPI');
+    Route::post('posts/user', 'PostController@getUserPost');
+
 });
