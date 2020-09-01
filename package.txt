@@ -5,3 +5,6 @@ telescope
 Dusk
 Socialite
 Course
+reCaptcha -> google
+==================
+laravel EaXcel

@@ -16,7 +16,7 @@ class PostController extends Controller
 
     public function traitTest()
     {
-        echo "traitTest2"
+        echo "traitTest2";
     }
 
     public function indexAPI() 
